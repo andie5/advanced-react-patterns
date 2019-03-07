@@ -30,8 +30,10 @@ class Measure extends React.Component {
     const { width } = this.state;
 
     return (
+      
       <div style={{ display: "block" }} ref={ref => (this.wrapper = ref)}>
-        You need to add something here. Don't change the wrapping div.
+        {/* You need to add something here. Don't change the wrapping div. */}
+        {this.props.children( width )}
       </div>
     );
   }

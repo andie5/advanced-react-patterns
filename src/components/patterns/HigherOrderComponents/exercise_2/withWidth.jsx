@@ -5,14 +5,14 @@ export const MEDIUM = 2
 export const LARGE = 3
 
 // This changes the component so that it is more re-usable, to pass parameters in with width
-const withWidth = (
-  {largeWidth = 992,
-    mediumWidth = 768} = {}
+const withWidth = (MyComponent) => {
+//   {largeWidth = 992,
+//     mediumWidth = 768} = {}
 
-) => (MyComponent) => {
+// ) => (MyComponent) => {
 
-  // const largeWidth = 992,
-  //       mediumWidth = 768
+  const largeWidth = 992,
+        mediumWidth = 768
 
   return class WithWidth extends Component {
     constructor() {
