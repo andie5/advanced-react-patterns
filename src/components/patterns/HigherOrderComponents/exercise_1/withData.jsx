@@ -5,7 +5,7 @@ import React from "react";
     1- receives a COMPONENT as a parameter (hint: is this function receving a component?)
     2- and returns another component
 */
-const withData = () => {
+const withData = (Component) => {
   class OuterComponent extends React.Component {
     state = {
       data: undefined,
@@ -28,6 +28,11 @@ const withData = () => {
 
     render() {
       // you should return something here
+      return <Component {...this.props} {...this.state} />
+      // This is alternative way of writing it - it is more explicit..if you want to add another variable later and don't
+      // want to pass interface..this is better
+      // There is a balance if there are 20 items in state...mybe spread but then again this should be a separate component
+      // return <Component {...this.props} data={this.state.data} loading={this.state.loading} error={this.state.error}/>
     }
   }
 

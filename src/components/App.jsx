@@ -144,4 +144,8 @@ class App extends React.Component {
   }
 }
 
-export default withWidth(App);
+// You could export the widthwidth to another function so that you are bot having to put the parameters here
+// That way, you end up writing this
+// withWidth(App)
+
+export default withWidth({ largeWidth:34343 })(App);
