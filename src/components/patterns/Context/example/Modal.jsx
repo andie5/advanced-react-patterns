@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Modal as BootstrapModal } from 'react-bootstrap'
 
 export const ModalContext = React.createContext()
+// alternative way and you can refer to the provider directly below
+// export const { Provider, Consumer } = React.createContext()
 
 class Modal extends React.Component {
   constructor () {

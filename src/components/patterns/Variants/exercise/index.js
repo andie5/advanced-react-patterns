@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme";
-// import { variant } from 'styled-system'
+import { variant } from 'styled-system'
 
 // TODO: create a variant called `alertStyle`
 /*
@@ -10,6 +10,14 @@ import theme from "./theme";
 
   *if you have questions why at the end ask us!
 */
+const alertStyle = variant({
+  key: "buttons"
+});
+
+// Use this if you want a default component
+// Alert.defaultProps = {
+//   variant: "default"
+// }
 
 const Alert = styled("div")`
   border-radius: 8px;
@@ -20,7 +28,10 @@ const Alert = styled("div")`
   margin: 24px;
   font-weight: 800;
   text-align: center;
+  ${alertStyle};
 `;
+
+
 
 const Wrapper = styled("div")`
   background-color: ${props => props.theme.colors.background};

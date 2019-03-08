@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-// import theme from "./theme";
+import theme from "./theme";
 
 /*
   Exercise TODO:
@@ -20,7 +20,7 @@ const Card = styled("div")`
   font-size: 18px;
   font-weight: 800;
   text-align: center;
-  background-color: white;
+  background-color: ${props => props.theme.background};
 `;
 
 /*
@@ -37,9 +37,11 @@ const Wrapper = styled("div")`
 */
 
 const ThemingExercise = () => (
-  <Wrapper>
-    <Card>Hallo I'm a Card</Card>
-  </Wrapper>
+  <ThemeProvider theme={theme}>
+    <Wrapper>
+      <Card>Hallo I'm a Card</Card>
+    </Wrapper>
+  </ThemeProvider>
 );
 
 export default ThemingExercise;

@@ -1,5 +1,6 @@
 import React from "react";
 // import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "./ThemeProvider";
 import Button from "./Button";
 import Hero from "./Hero";
 
@@ -10,9 +11,19 @@ import Hero from "./Hero";
 */
 
 const App = () => (
-  <Hero>
-    <Button>Theme Switcher</Button>
-  </Hero>
+
+  <ThemeContext.Consumer>
+  {({ setTheme }) => (
+
+    <Hero>
+      <Button onClick={setTheme}>Theme Switcher</Button>
+    </Hero>
+  )}
+
+</ThemeContext.Consumer>
+
+
+  
 );
 
 export default App;

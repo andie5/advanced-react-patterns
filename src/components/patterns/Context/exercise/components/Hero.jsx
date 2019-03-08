@@ -19,9 +19,9 @@ const Heading = styled.h1`
 
 const Hero = ({children}) => (
   <Wrapper>
-    <Heading>hero component</Heading>
-    {children}
-  </Wrapper>
+      <Heading>hero component</Heading>
+      {children}
+    </Wrapper>
 )
 
 export default Hero;

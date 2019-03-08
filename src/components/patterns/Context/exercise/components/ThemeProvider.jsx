@@ -4,16 +4,19 @@ import { ThemeProvider as StyledProvider } from 'styled-components'
 
 // First you need to create your `ThemeContext` (use React.CreateContext());
 // you need to export this also..
-
+export const ThemeContext = React.createContext()
 class ThemeProvider extends React.Component {
 
   // You should heep track of some sort of state to toggle the theme from `light` to `dark`
   // (see the themes.js file)
   state = {
-    theme: "???"
+    theme: "light"
   }
 
   handleThemeToggle = () => {
+    this.setState(prevState => ({
+      theme: prevState.theme === "light" ? "dark" : "light"
+    }));
     /*
       Toggle the theme state using `this.setState`.
       remember you can call this function with a funcion as a parameter:
@@ -24,6 +27,9 @@ class ThemeProvider extends React.Component {
   }
   render() {
     const { children } = this.props
+    const { handleThemeToggle } = this
+    const { theme } = this.state;
+
     /*
       - you should replace the `wrap` your whole app with ThemeContext provider.
       - the theme you pass to the `StyledProvider` is the one you are tracking in this component.
@@ -34,9 +40,15 @@ class ThemeProvider extends React.Component {
       => you can do this in `src/components/patterns/Context/exercise/components/App.jsx`
     */
     return (
-      <StyledProvider theme={themes['light']}>
-        {children}
-      </StyledProvider>
+    //   <StyledProvider theme={themes['light']}>
+    //   {children}
+    // </StyledProvider>
+
+      <ThemeContext.Provider value={{theme, setTheme: handleThemeToggle}}>
+        <StyledProvider theme={themes[theme]}>
+          {children}
+        </StyledProvider>
+      </ThemeContext.Provider>
     )
   }
 }
